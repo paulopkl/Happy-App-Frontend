@@ -49,7 +49,6 @@ export default function Orphanage() {
   return (
     <div id="page-orphanage">
       <SideBar />
-
       <main>
         <div className="orphanage-details">
           <img src={orphanage.images[activeImageIndex].url} alt={orphanage.name} />

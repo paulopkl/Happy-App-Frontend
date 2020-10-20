@@ -1,0 +1,68 @@
+div.page-success {
+    height: 100vh;
+    width: 100vw;
+    background-color: #37C77F;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.page-success main {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.page-success main div.success-data {
+    display: flex;
+    flex-direction: column;
+}
+
+div.page-success main div.success-data h1 {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 42px;
+    margin-top: 64px;
+    margin-bottom: 15%;
+}
+
+div.page-success main div.success-data  {
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 34px;
+    width: 25vw;
+    text-align: center;
+    /* margin-left: 10%; */
+    margin-right: 10vw;
+
+    display: flex;
+    align-items: center;
+}
+
+div.page-success main div.success-data .success-button {
+    margin-top: 64px;
+    
+    width: 75%;
+    height: 64px;
+    border: 0;
+    background: #31B272;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration-line: none;
+
+    transition: 1s;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.page-success main div.success-data .success-button:hover {
+
+    background: #3BD689;
+}

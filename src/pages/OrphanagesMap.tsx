@@ -15,13 +15,8 @@ import api from '../services/api';
 interface Orphanages {
     id: number;
     name: string;
-    // about: string;
-    // instructions: string;
     latitude: number;
     longitude: number;
-    // open_on_weekends: boolean;
-    // opening_hours: string;
-    // images: Object[];
 }
 
 function OrphanagesMap() {
