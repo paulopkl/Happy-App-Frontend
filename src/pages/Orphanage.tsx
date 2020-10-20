@@ -68,7 +68,6 @@ export default function Orphanage() {
           
           <div className="orphanage-details-content">
             <h1>{orphanage.name}</h1>
-            {/* <p>Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.</p> */}
             <p>{orphanage.about}</p>
 
             <div className="map-container">
