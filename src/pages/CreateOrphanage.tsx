@@ -91,10 +91,7 @@ export default function CreateOrphanage() {
                 <Marker
                   interactive={false}
                   icon={happyMapIcon}
-                  position={[
-                    position.latitude,
-                    position.longitude
-                  ]}
+                  position={[ position.latitude, position.longitude ]}
                 />
               )}
 
@@ -180,5 +177,3 @@ export default function CreateOrphanage() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;

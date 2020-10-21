@@ -30,17 +30,35 @@ interface RouteParams {
   id: string;
 }
 
+interface Position {
+  latitude: number;
+  longitude: number;
+}
+
 export default function Orphanage() {
   const params = useParams<RouteParams>();
   const [orphanage, setOrphanage] = useState<Orphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-
+  const [currentPosition, setCurrentPositon] = useState<Position>({ 
+    latitude: -22.824236, 
+    longitude: -47.270097 
+  });
+  
   useEffect(() => {
     api.get(`orphanages/${params.id}`).then(response => {
-      console.log(response.data);
       setOrphanage(response.data);
     });
+
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      setCurrentPositon({ latitude, longitude });
+      return;
+    }, recused => {
+      alert('Pedido de localização Recusado definimos uma localização fixo no centro de sumaré para você!!');
+      return;
+    })
   }, [params.id]);
+  
 
   if(!orphanage) {
     return <p>Carregando...</p>
@@ -90,7 +108,7 @@ export default function Orphanage() {
 
               <footer>
                 <a target="_blank" rel="noopener noreferrer" 
-                  href={`https://www.google.com/maps/dir/?api=1&origin=${-22.824236},${-47.270097}&destination=${orphanage.latitude},${orphanage.longitude}`}>Ver rotas no Google Maps</a>
+                  href={`https://www.google.com/maps/dir/?api=1&origin=${currentPosition.latitude},${currentPosition.longitude}&destination=${orphanage.latitude},${orphanage.longitude}`}>Ver rotas no Google Maps</a>
               </footer>
             </div>
 
