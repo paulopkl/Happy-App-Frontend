@@ -9,6 +9,7 @@ import SideBar from "../components/SideBar";
 
 import happyMapIcon from '../utils/mapIcon';
 import api from "../services/api";
+import { LeafletMouseEvent } from "leaflet";
 
 export default function CreateOrphanage() {
   const history = useHistory();
@@ -17,13 +18,14 @@ export default function CreateOrphanage() {
 
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpenin_hours] = useState('');
   const [open_on_weekends, setOpen_on_weekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
 
-  const handleMapClick = (event: any) => {
+  const handleMapClick = (event: LeafletMouseEvent): void => {
     const { lat, lng } = event.latlng;
     setPosition({ latitude: lat, longitude: lng });
   }
@@ -37,6 +39,7 @@ export default function CreateOrphanage() {
 
     data.append('name', name);
     data.append('about', about);
+    data.append('whatsapp', String(whatsapp));
     data.append('latitude', String(latitude));
     data.append('longitude', String(longitude));
     data.append('instructions', instructions);
@@ -47,9 +50,13 @@ export default function CreateOrphanage() {
       data.append('images', image);
     });
 
-    await api.post('orphanages', data);
-
-    history.push('/orphanage/success');
+    await api.post('orphanages', data)
+      .then(res => {
+        history.push('/orphanage/success');
+      })
+      .catch(err => {
+        alert(err.message);
+      });
   }
 
   const handleSelectImages = (event: ChangeEvent<HTMLInputElement>) => {
@@ -113,6 +120,18 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
+              <label htmlFor="whatsapp">Whatsapp <span>Apenas 11 numeros incluindo o DDD ex: XXXXXXXXXXX</span></label>
+              <input 
+                type="number"
+                id="whatsapp"
+                minLength={11}
+                maxLength={11}
+                value={whatsapp}
+                onChange={event => setWhatsapp(event.target.value)}
+              />
+            </div>
+
+            <div className="input-block">
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
@@ -132,7 +151,7 @@ export default function CreateOrphanage() {
             <legend>Visitação</legend>
 
             <div className="input-block">
-              <label htmlFor="instructions">Instruções</label>
+              <label htmlFor="instructions">Instruções <span>Ex: Das XXh ás XXh.</span></label>
               <textarea
                 id="instructions"
                 value={instructions}
@@ -161,7 +180,7 @@ export default function CreateOrphanage() {
                 </button>
                 <button
                   type="button"
-                  className={open_on_weekends === false ? "active" : ''}
+                  className={!open_on_weekends ? "desabled" : ''}
                   onClick={() => setOpen_on_weekends(false)}>
                   Não
                 </button>

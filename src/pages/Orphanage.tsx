@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 
-// import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
 
@@ -14,6 +14,7 @@ import api from "../services/api";
 interface Orphanage {
   name: string;
   about: string;
+  whatsapp: string;
   instructions: string;
   description: string;
   latitude: number;
@@ -34,6 +35,8 @@ interface Position {
   latitude: number;
   longitude: number;
 }
+
+const mensagem = "Boa%20tarde%20gostária%20de%20saber%20qual%20o%20melhor%20dia%20que%20posso%20fazer%20uma%20visita%20á%20este%20orfanato?"
 
 export default function Orphanage() {
   const params = useParams<RouteParams>();
@@ -139,10 +142,13 @@ export default function Orphanage() {
               }
             </div>
 
-            {/* <button type="button" className="contact-button">
-              <FaWhatsapp size={20} color="#FFF" />
-              Entrar em contato
-            </button> */}
+            <a 
+              className="contact-button" 
+              href={`https://api.whatsapp.com/send?phone=55${+orphanage.whatsapp}&text=${mensagem}`}
+              target="_blank" rel="noopener noreferrer">
+                <FaWhatsapp size={20} color="#FFF" />
+                Entrar em contato
+            </a>
           </div>
         </div>
       </main>
