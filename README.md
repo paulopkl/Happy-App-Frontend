@@ -50,14 +50,11 @@ mapas Leaflet. Você pode conferir em: <a href="happy-app-frontend.netlify.app/"
 
 Foi desenvolvido também o App Mobile Multiplataforma feito em React-Native + TypeScript. Você pode conferir o repositório e gerar o APK em: <a href="https://github.com/paulopkl/Happy-Mobile-Deploy" target="_blank">https://github.com/paulopkl/Happy-Mobile-Deploy</a>
 
-(Este projeto foi desenvolvido durante a semana "Next Level Week #03" da Rocketseat.
-Foram desenvolvidos do zero a API feita em NodeJS + TypeScript, juntando o typeorm para construir as 
-migrations em SQLite. Você pode conferir em: <a href="https://happy-app-backend.herokuapp.com/" target="_blank">https://happy-app-backend.herokuapp.com/<a> 
+(This project was developed during Rocketseat's "Next Level Week # 03" week. The API made in NodeJS + TypeScript was developed from scratch, joining the typeorm to build the migrations in SQLite. You can check it out at: <a href="https://happy-app-backend.herokuapp.com/" target="_blank">https://happy-app-backend.herokuapp.com/<a>
 
-Foi desenvolvido tambem o Frontend Web com ReactJS + TypeScript e a biblioteca para
-mapas Leaflet. Você pode conferir em: <a href="happy-app-frontend.netlify.app/" target="_blank">happy-app-frontend.netlify.app/<a>
+The Frontend Web was also developed with ReactJS + TypeScript and the library for Leaflet maps. You can check it out at: <a href="happy-app-frontend.netlify.app/" target="_blank">happy-app-frontend.netlify.app/<a>
 
-Foi desenvolvido também o App Mobile Multiplataforma feito em React-Native + TypeScript. Você pode conferir o repositório e gerar o APK em: <a href="https://github.com/paulopkl/Happy-Mobile-Deploy" target="_blank">https://github.com/paulopkl/Happy-Mobile-Deploy</a>.)
+The Multiplatform Mobile App made in React-Native + TypeScript was also developed. You can check the repository and generate the APK at: <a href="https://github.com/paulopkl/Happy-Mobile-Deploy" target="_blank">https://github.com/paulopkl/Happy-Mobile-Deploy</a>.)
 
 ## 🏁 Inicio (Getting Started) <a name="getting_started"></a>
 
